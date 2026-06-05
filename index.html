@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA JEWELLERY</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="loader-wrapper">
+    <div class="black-point"></div>
+    
+    <div class="welcome-text">
+        <span class="italian-style">Welcome</span>
+        <span class="brand-style"> TO 
+        AURA COLLECTION</span>
+    </div>
+</div>
+
+
+    <nav class="navbar">
+ 
+
+
+<div class="logo-container">
+    <img src="https://i.postimg.cc/brmbNrR0/20260130-135911.png" class="nav-logo">
+</div>
+<div class="logo">AURA COLLECTION</div>
+<button id="cool-btn" class="google-icon">
+  <img class="google-icon" src="https://i.postimg.cc/mkhFC4Ss/250px-Google-Favicon-2025-svg.png" alt="Google">
+</button>
+
+    </nav>
+    <nav class="nova">
+
+           <button class="bty" onclick="showReviewPopup()">🛒           <span id="cart-count" style="color:white;">0</span></button>
+                <button class="bty" onclick="toggleCart()">
+           📋             </button>
+
+
+
+    <button class="bty" onclick="toggleSearch()">🔍</button>
+
+     <button id="openPolicyBtn" class="bty"> 📜</button>
+
+<div id="policyModal" class="modal-overlay">
+    <div class="policy-card">
+        <header class="modal-header">
+            <h2>Shop Rules 📜</h2>
+        </header>
+        
+        <div class="policy-body" id="policyBody">
+            <p><strong>Handmade with Love:</strong> Every piece is unique, just like you! Since we makes these by hand, expect small, beautiful variations.</p>
+            <p><strong>Shipping:</strong> We zip things out as fast as we can. Usually 2-5 days depending on your spot on the map.</p>
+            <p><strong>Payments:</strong> We’re rocking Cash on Delivery (COD) for now. Keep that cash handy!</p>
+            <p><strong>Returns:</strong> Damaged on arrival? Let us know within 7 days and we’ll fix it up.</p>
+            <p><em>Keep scrolling to the bottom to confirm you've seen it all!</em></p>
+            <div style="height: 50px;"></div>
+            <p>Ready to level up your style? Check the box below!</p>
+        </div>
+
+        <footer class="modal-footer">
+            <div class="checkbox-wrapper">
+                <input type="checkbox" id="policyAgree">
+                <label for="policyAgree">I've read and I'm ready! ✅</label>
+            </div>
+            <p id="errorNote" class="error-text">Whoops! Tick the box first! 👆</p>
+            <button id="submitPolicy" class="submit-btn">Let's Go!</button>
+        </footer>
+    </div>
+</div>
+
+    </nav>
+    <nav id="search-nav">        <div class="nav-search-container" id="searchBox">
+                <input type="text" id="productSearch" placeholder="search from here" onkeyup="filterProducts()"></div></nav>
+
+    <header class="hero">
+
+
+        
+<div class="top-announcement">
+    <div class="scrolling-text">
+                  <span>
+             ꧁SUKH COLLECTION꧂</span>
+<span>•</span>
+        <span>🎉 Get flat 10% OFF on your first order🎉</span>
+ <span>•</span>
+        <span>🚚GET HAND MADE JEWELLERY AT 20₹ OFF IF YOU LIVE IN 30M IN RANGE OF MAIN OFFICE🚚</span>
+ <span>•</span>
+        <span>✨ HANDMADE JEWELRY  ITEMS ✨</span>
+<span>•</span>
+    </div>
+</div>
+
+
+
+<div id="review-modal" style="display:none; position:fixed; top:0; left:0; width:65vw; height:95vh; background:rgba(0,0,0,0.8); z-index:3000; overflow-y:auto; padding:20px;">
+    <div style="background:white; max-width:500px; margin:20px auto; padding:20px; border-radius:10px; position:relative;">
+        <span onclick="closeReviewPopup()" style="position:absolute; right:15px; top:10px; font-size:24px; cursor:pointer;">&times;</span>
+        <h2 style="text-align:center;">Review Your Order</h2>
+        <hr>
+        <div id="review-items-container"></div>
+        
+        <button onclick="closeReviewPopup()" style="width:100%; background:black; color:white; padding:15px; border:none; margin-top:20px; border-radius:5px;">CLOSE & CHECKOUT</button>
+    </div>
+</div>
+
+    </header>
+
+    <section class="products">
+        <div class="product-card" data-name="Pearl Necklace" data-price="1200">
+            <div class="img-placeholder">    <img src="https://i.postimg.cc/XYHYnVGy/20260108-221001.png" alt="Aura Designs Logo" class="item-logo"></div>
+            <h3>Pearl Necklace</h3>
+            <h4>set of 50 </h4>
+            <p>₹1,200</p>
+            <button class="add-btn">Add to Cart</button>
+                        
+        </div>
+      <div class="product-card" data-name="Silk Floral Top" data-price="2500">
+            <div class="img-placeholder">👕</div>
+            <h3>Silk Floral Top</h3>
+            <p>₹2,500</p>
+            <button class="add-btn">Add to Cart</button>
+            
+        </div>
+
+        </div>
+        <div class="product-card" data-name="Silk Floral Top" data-price="2500">
+            <div class="img-placeholder">👕</div>
+            <h3>Silk Floral Top</h3>
+            <p>₹2,500</p>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+        <div id="rules-box">
+    <div class="rules-content">
+        <p><strong>📍REGARDING INFO:</strong>PLEASE READ ALL POLICIES BY CLICK THE "📜" BUTTON BEFORE PLACING ORDER </p>
+        <button onclick="closeRules()">Got it!</button>
+    </div>
+</div>
+<div id="chat-circle" onclick="toggleChat()">
+    <span>💬</span>
+</div>
+
+<div id="chat-box" class="hidden">
+    <div class="chat-header">
+        <strong>AURA STORE HELPER</strong>
+        <span onclick="toggleChat()" style="cursor:pointer">✖</span>
+    </div>
+    <div class="chat-input-wrapper">
+    <button id="voice-btn" class="mic-mini-btn">
+        <span class="mic-icon">🎤</span>
+        <div class="pulse-ring"></div>
+    </button>
+</div>
+<div id="ai-status">Standby</div>
+
+    <div id="chat-display">
+        <p class="bot-msg">Hello! How can I help you today?</p>
+    </div>
+    <div class="chat-input-area">
+        <input type="text" id="userInput" placeholder="Type 'help'...">
+        <button onclick="sendMsg()">Send</button>
+    </div>
+</div>
+<div id="help-circle" onclick="togglehelp()">
+    <span>☎️</span>
+</div>
+
+<div id="help-box" class="hidden">
+    <div class="chat-header">
+        <strong>AURA COUSTUMER CARE</strong>
+        <span onclick="togglehelp()" style="cursor:pointer">✖</span>
+        
+    </div>
+   <div id="choh">
+  <button class="help" onclick="c('email')">
+    <span id="em">📨 gmail</span>
+  </button>
+
+  <button class="hep" onclick="c('wa')">
+    <span id="wa">📞 whatsapp</span>
+  </button>
+</div>
+</div>
+
+    </div>
+<footer class="copyright-box">Copyright 2026© all rights are reserved|aura collection</footer>
+
+
+
+
+
+    </section>
+
+    </section>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <h2>Your Order</h2>
+            <div id="cart-items"></div>
+            <hr>
+            <form id="checkout-form">
+                <input type="text" id="name" placeholder="Full Name & shop name" required>
+                <input type="text" id="address" placeholder="delivey Address" required>
+                <input type="tel" id="phone" placeholder="WhatsApp Number" required>
+                <div class="form-group">
+                <div class="total-price">Total: ₹<span id="final-price">0</span></div>
+<button type="button" id="submit-btn" class="order-btn" onclick="submitOrder(event)">Confirm & Send Order</button>
+
+                <button type="button" onclick="toggleCart()" class="order-btn">Close</button>
+
+
+            </form>
+        </div>
+    </div>
+
+
+   <script type="module" src="er.js"></script>
+    <script src="script.js"></script>
+   <script src="sheet.js"></script>
+   <script src="help-box.js"></script>
+   <script src="chat-box.js"></script>
+   <script src="box.js"></script>
+   <script src="load.js"></script>
+   <script src="sai.js"></script>
+   <script src ="hc.js"></script>
+
+
+
+
+</body>
+</html>
